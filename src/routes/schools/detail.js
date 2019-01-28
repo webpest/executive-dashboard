@@ -5,6 +5,7 @@ import React from "react";
 import Chart from "react-apexcharts";
 import Layout from "../../components/Layout";
 import TeachersPerSubject from "../../components/TeachersPerSubject";
+import { capitalize } from "../../utils/helper";
 import { Card, Grid } from "./style";
 
 const SchoolDetail = ({ schools: { schoolDetail } }) => {
@@ -18,7 +19,8 @@ const SchoolDetail = ({ schools: { schoolDetail } }) => {
     noOfMaleStaff,
     noOfFemaleStaff,
     boardingStudents,
-    dayStudents
+    dayStudents,
+    schoolName
     // teachersPerSubject
   } = schoolDetail;
   const teachersPerSubject = {
@@ -158,19 +160,10 @@ const SchoolDetail = ({ schools: { schoolDetail } }) => {
       <Grid>
         <div className="pageTitle">
           <h1>
-            <Link to="/schools">Schools</Link> > School Name
+            <Link to="/schools">Schools</Link> > {capitalize(schoolName)}
           </h1>
         </div>
-        <div className="schools">
-          <Card>
-            <div className="card-body">
-              <h3>
-                <Link to="/schools">Schools</Link>
-              </h3>
-              <span className="number">{totalNoOfSchools}</span>
-            </div>
-          </Card>
-        </div>
+
         <div className="staffs">
           <Card>
             <div className="card-body">

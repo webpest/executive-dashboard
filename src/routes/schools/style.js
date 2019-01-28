@@ -76,14 +76,14 @@ const Grid = styled.div`
     padding: 1rem;
   }
   & .schools {
-    grid-column: 1 / 2;
+    grid-column: 4 / 5;
     grid-row: 2 / 3;
     & .number {
       color: ${props => props.theme.info};
     }
   }
   & .staffs {
-    grid-column: 2 / 3;
+    grid-column: 1 / 3;
     grid-row: 2 / 3;
     & .number {
       color: ${props => props.theme.danger};

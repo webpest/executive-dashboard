@@ -5,7 +5,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-size: 16px;
     line-height: 1.5em;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: ${props => props.theme.bgLight};
   }
   *, *:before, *:after {box-sizing: inherit;}img, embed, iframe, object, audio, video {height: auto;max-width: 100%;}iframe {border: 0;}table {border-collapse: collapse;border-spacing: 0;}td, th {padding: 0;text-align: left;}

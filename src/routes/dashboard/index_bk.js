@@ -1,27 +1,25 @@
 import { connect } from "dva";
 import { Link } from "dva/router";
-import { Object } from "es6-shim";
 import React from "react";
+import Chart from "react-apexcharts";
 import Layout from "../../components/Layout";
-// import Chart from "react-apexcharts";
 import TeachersPerSubject from "../../components/TeachersPerSubject";
-import { capitalize } from "../../utils/helper";
 import { Card, Grid } from "./style";
 
-const SchoolDetail = ({ schools: { schoolDetail } }) => {
-  if (schoolDetail === undefined) return null;
+const DashBoard = ({ app, dashboard, loading, dispatch }) => {
+  if (Object.keys(dashboard).length < 0) return null;
   const {
+    totalNoOfSchools,
     noOfStudents,
     noOfStaff,
-    noOfFemaleStudents,
     noOfMaleStudents,
+    noOfFemaleStudents,
     noOfMaleStaff,
     noOfFemaleStaff,
     boardingStudents,
     dayStudents,
-    schoolName,
     teachersPerSubject
-  } = schoolDetail;
+  } = dashboard;
 
   const TPS = {
     width: "500",
@@ -141,15 +139,20 @@ const SchoolDetail = ({ schools: { schoolDetail } }) => {
     },
     series: [noOfMaleStudents, noOfFemaleStudents]
   };
+
   return (
     <Layout>
       <Grid>
-        <div className="pageTitle">
-          <h1>
-            <Link to="/schools">Schools</Link> > {capitalize(schoolName)}
-          </h1>
+        <div className="schools">
+          <Card>
+            <div className="card-body">
+              <h3>
+                <Link to="/schools">Schools</Link>
+              </h3>
+              <span className="number">{totalNoOfSchools}</span>
+            </div>
+          </Card>
         </div>
-
         <div className="staffs">
           <Card>
             <div className="card-body">
@@ -188,22 +191,22 @@ const SchoolDetail = ({ schools: { schoolDetail } }) => {
         <div className="main_chart">
           <Card>
             <div className="card-body">
-              {/* <Chart
+              <Chart
                 options={studentGender.options}
                 series={studentGender.series}
                 type="donut"
                 width="200"
-              /> */}
+              />
             </div>
           </Card>
           <Card>
             <div className="card-body">
-              {/* <Chart
+              <Chart
                 options={teacherGender.options}
                 series={teacherGender.series}
                 type="donut"
                 width="200"
-              /> */}
+              />
             </div>
           </Card>
         </div>
@@ -212,8 +215,8 @@ const SchoolDetail = ({ schools: { schoolDetail } }) => {
   );
 };
 
-SchoolDetail.propTypes = {};
+DashBoard.propTypes = {};
 
-export default connect(({ schools: { schoolDetail } }) => ({
-  schools: { schoolDetail }
-}))(SchoolDetail);
+export default connect(({ app, dashboard }) => ({
+  dashboard
+}))(DashBoard);

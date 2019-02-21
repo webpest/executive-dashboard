@@ -21,6 +21,7 @@ export default {
     *fetchDashBoardData({ payload }, { call, put }) {
       try {
         const { data } = yield call(getDashBoardData);
+        console.log(data);
         yield put({ type: "save", data });
       } catch (error) {
         console.log(error);

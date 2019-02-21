@@ -1,6 +1,6 @@
+import { Link } from "dva/router";
 import React from "react";
 import styled from "styled-components";
-import { Link } from "dva/router";
 import { capitalize } from "../utils/helper";
 
 const Item = styled.div`
@@ -72,7 +72,13 @@ const SchoolItem = ({
   return (
     <Item>
       <div className="logo">
-        <img src={logoUrl} alt="" />
+        <a
+          href={`http://${schoolCode}.safsms.cloud`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={logoUrl} alt="" />
+        </a>
       </div>
       <Link to={`/schools/${schoolCode}`}>
         <h3>{capitalize(schoolName)}</h3>

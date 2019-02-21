@@ -7,7 +7,7 @@ const TeachersPerSubject = ({ data }) => {
       options={data.options}
       series={data.series}
       type={data.type}
-      height="335"
+      height="400"
     />
   );
 };

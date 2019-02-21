@@ -25,7 +25,7 @@ const Unity = styled.div`
     align-items: center;
     width: auto;
     text-decoration: none;
-    color: ${props => props.theme.bgLight};
+    color: ${props => props.theme.secondaryColor};
   }
   & h1 {
     display: inline-block;
@@ -46,13 +46,12 @@ const UnityLogo = styled.h1`
 
 const Header = styled.header`
   height: 60px;
-  background-color: ${props => props.theme.secondaryColor};
-  color: ${props => props.theme.greyLight};
+  background-color: ${props => props.theme.primaryColor};
+  color: ${props => props.theme.secondaryColor};
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 19px 34px -15px ${props => props.theme.grey};
 `;
 const Main = styled.section`
   height: calc(100vh - 60px);
@@ -61,7 +60,7 @@ const Container = styled.div`
   width: 100%;
   padding: 2rem 0;
   @media (min-width: 500px) {
-    width: 1000px;
+    width: 860px;
     margin: 0 auto;
   }
 `;

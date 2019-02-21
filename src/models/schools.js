@@ -43,17 +43,12 @@ export default {
     *fetchSchool({ schoolId }, { call, put }) {
       try {
         const { data } = yield call(getSchool, schoolId);
-        const schoolList = yield call(getSchools);
-        const school = yield schoolList.data.filter(
-          sch => sch.schoolCode === schoolId
-        );
-        const schoolName = school[0].schoolName;
+        console.log(data);
         yield put({
           type: "save",
           data: {
             schoolDetail: {
-              ...data,
-              schoolName
+              ...data
             }
           }
         });
